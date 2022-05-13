@@ -55,7 +55,6 @@ public class Program {
 		}
 		
 		ConnectionFactory.closeConnection();
-		System.out.println("\nPrograma Finalizado!");
 	}
 
 }
