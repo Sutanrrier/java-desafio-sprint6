@@ -73,7 +73,9 @@ public class Estacionamento {
 	//toString
 	@Override
 	public String toString() {
-		return "Estacionamento [id=" + id + ", nome=" + nome + ", dataCriacao=" + dataCriacao + "]";
+		return "Estacionamento -> Id: " + id 
+				+ " | Nome: " + nome 
+				+ " | Adicionado em: " + dataCriacao;
 	}
 	
 }

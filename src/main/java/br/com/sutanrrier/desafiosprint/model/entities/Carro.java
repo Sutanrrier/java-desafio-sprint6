@@ -104,8 +104,12 @@ public class Carro {
 	//ToString
 	@Override
 	public String toString() {
-		return "Carro [id=" + id + ", cor=" + cor + ", placa=" + placa + ", velocidademax=" + velocidademax
-				+ ", dataCriacao=" + dataCriacao + ", estacionamento=" + estacionamento + "]";
+		return "Carro -> Id: " + id 
+				+ " | Cor: " + cor 
+				+ " | Placa: " + placa 
+				+ " | Vel. Máxima: " + velocidademax
+				+ " | Adicionado em: " + dataCriacao 
+				+ " | Estacionamento: " + estacionamento.getNome();
 	}
 	
 }
