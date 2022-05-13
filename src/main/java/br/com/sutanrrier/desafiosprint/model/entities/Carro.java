@@ -3,6 +3,7 @@ package br.com.sutanrrier.desafiosprint.model.entities;
 import java.sql.Date;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,9 +19,16 @@ public class Carro {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
+	@Column(nullable=false)
 	private String cor;
+	
+	@Column(nullable=false)
 	private String placa;
+	
+	@Column(nullable=false)
 	private Double velocidademax;
+	
+	@Column(nullable=false)
 	private Date dataCriacao;
 	
 	@ManyToOne
