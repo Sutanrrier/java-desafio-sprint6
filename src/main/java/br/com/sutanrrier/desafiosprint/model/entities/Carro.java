@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,10 +17,13 @@ public class Carro {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String cor;
 	private String placa;
 	private Double velocidademax;
 	private Date dataCriacao;
+	
+	@ManyToOne
 	private Estacionamento estacionamento;
 	
 	//Construtores

@@ -3,39 +3,51 @@ package br.com.sutanrrier.desafiosprint.model.entities;
 import java.sql.Date;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="tb_estacionamento")
 public class Estacionamento {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String nome;
 	private Date dataCriacao;
 	
 	//Construtores
+	public Estacionamento() {
+		
+	}
 	public Estacionamento(Integer id, String nome, Date dataCriacao) {
 		this.id = id;
 		this.nome = nome;
 		this.dataCriacao = dataCriacao;
 	}
 
-	public Estacionamento() {
-		
-	}
-	
 	//Getters e Setters
 	public Integer getId() {
 		return id;
 	}
-
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	
 	public Date getDataCriacao() {
 		return dataCriacao;
 	}
-
 	public void setDataCriacao(Date dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
@@ -58,6 +70,7 @@ public class Estacionamento {
 		return Objects.equals(id, other.id);
 	}
 
+	//toString
 	@Override
 	public String toString() {
 		return "Estacionamento [id=" + id + ", nome=" + nome + ", dataCriacao=" + dataCriacao + "]";

@@ -9,6 +9,7 @@
 
 	<!--Lista de Entidades -->
 	<class>br.com.sutanrrier.desafiosprint.model.entities.Carro</class>
+	<class>br.com.sutanrrier.desafiosprint.model.entities.Estacionamento</class>
 	
 	<properties>
 		<!--Propriedades do JDBC -->
