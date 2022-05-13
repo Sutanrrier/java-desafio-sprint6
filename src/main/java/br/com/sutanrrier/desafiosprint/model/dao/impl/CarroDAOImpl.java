@@ -90,7 +90,7 @@ public class CarroDAOImpl implements CarroDAO{
 		List<Carro> listaCarro = null;
 		
 		try {
-			listaCarro = em.createQuery("FROM Carro c", Carro.class).getResultList();
+			listaCarro = em.createQuery("FROM Carro c ORDER BY id", Carro.class).getResultList();
 		}
 		catch(Exception e) {
 			System.out.println("Erro ao retornar todos os carros!");

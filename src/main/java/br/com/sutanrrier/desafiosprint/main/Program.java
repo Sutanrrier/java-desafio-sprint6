@@ -24,20 +24,20 @@ public class Program {
 		EstacionamentoDAOImpl estacionamentoDao = new EstacionamentoDAOImpl();
 		
 		//Inserindo entidades (Carro e Estacionamento
-		estacionamentoDao.insert(estac1);
-		carroDao.insert(car1);
-		carroDao.insert(car2);
+//		estacionamentoDao.insert(estac1);
+//		carroDao.insert(car1);
+//		carroDao.insert(car2);
 		
 		//Atualizando dados
-		car1 = carroDao.findById(1);
-		car1.setPlaca("TESTE");
-		carroDao.update(car1);
+//		car1 = carroDao.findById(1);
+//		car1.setPlaca("TESTE");
+//		carroDao.update(car1);
 		
 		//Deletando elementos
-		carroDao.remove(2);
+//		carroDao.remove(2);
 		
 		//Listando unidades por id
-		Carro carroBuscado = carroDao.findById(2);
+		Carro carroBuscado = carroDao.findById(3);
 		Estacionamento estacionamentoBuscado = estacionamentoDao.findById(1);
 		System.out.println(carroBuscado);
 		System.out.println(estacionamentoBuscado);

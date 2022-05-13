@@ -90,7 +90,7 @@ public class EstacionamentoDAOImpl implements EstacionamentoDAO {
 		List<Estacionamento> listaEstacionamento = null;
 		
 		try {
-			listaEstacionamento = em.createQuery("FROM Estacionamento e", Estacionamento.class).getResultList();
+			listaEstacionamento = em.createQuery("FROM Estacionamento e ORDER BY id", Estacionamento.class).getResultList();
 		}
 		catch(Exception e) {
 			System.out.println("Erro ao retornar todos os estacionamentos!");
