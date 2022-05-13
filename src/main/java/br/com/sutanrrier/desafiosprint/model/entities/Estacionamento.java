@@ -1,4 +1,4 @@
-package model.entities;
+package br.com.sutanrrier.desafiosprint.model.entities;
 
 import java.sql.Date;
 import java.util.Objects;

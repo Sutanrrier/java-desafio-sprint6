@@ -5,16 +5,15 @@
 	version="2.1">
 	
 	<!--Nome da Persistence Unit -->
-	<persistence-unit name="estudo_jpa" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="persistence_jpa" transaction-type="RESOURCE_LOCAL">
 
 	<!--Lista de Entidades -->
-	<class>br.com.sutanrrier.model.dominio.Categoria</class>
-	<class>br.com.sutanrrier.model.dominio.Produto</class>
+	<class>br.com.sutanrrier.desafiosprint.model.entities.Carro</class>
 	
 	<properties>
 		<!--Propriedades do JDBC -->
 		<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-		<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/aulajpa" />
+		<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/desafiosprint" />
 		<property name="javax.persistence.jdbc.user" value="postgres" />
 		<property name="javax.persistence.jdbc.password" value="senh@" />
 		
