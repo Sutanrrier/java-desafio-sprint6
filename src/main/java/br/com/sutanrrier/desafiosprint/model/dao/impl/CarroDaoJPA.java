@@ -5,13 +5,13 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import br.com.sutanrrier.desafiosprint.connection.ConnectionFactory;
-import br.com.sutanrrier.desafiosprint.model.dao.interfaces.EstacionamentoDAO;
-import br.com.sutanrrier.desafiosprint.model.entities.Estacionamento;
+import br.com.sutanrrier.desafiosprint.model.dao.interfaces.GenericDao;
+import br.com.sutanrrier.desafiosprint.model.entities.Carro;
 
-public class EstacionamentoDAOImpl implements EstacionamentoDAO {
+public class CarroDaoJPA implements GenericDao<Carro>{
 
 	@Override
-	public void insert(Estacionamento obj) {
+	public void insert(Carro obj) {
 		EntityManager em = ConnectionFactory.getEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -20,7 +20,7 @@ public class EstacionamentoDAOImpl implements EstacionamentoDAO {
 		}
 		catch(Exception e) {
 			em.getTransaction().rollback();
-			System.out.println("Erro ao inserir Estacionamento!");
+			System.out.println("Erro ao inserir Carro!");
 			e.getMessage();
 		}
 		finally {
@@ -29,7 +29,7 @@ public class EstacionamentoDAOImpl implements EstacionamentoDAO {
 	}
 
 	@Override
-	public void update(Estacionamento obj) {
+	public void update(Carro obj) {
 		EntityManager em = ConnectionFactory.getEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -38,7 +38,7 @@ public class EstacionamentoDAOImpl implements EstacionamentoDAO {
 		}
 		catch(Exception e) {
 			em.getTransaction().rollback();
-			System.out.println("Erro ao atualizar informações do Estacionamento!");
+			System.out.println("Erro ao atualizar informações do Carro!");
 			e.getMessage();
 		}
 		finally {
@@ -50,7 +50,7 @@ public class EstacionamentoDAOImpl implements EstacionamentoDAO {
 	public void remove(Integer id) {
 		EntityManager em = ConnectionFactory.getEntityManager();
 		try {
-			Estacionamento obj = em.find(Estacionamento.class, id);
+			Carro obj = em.find(Carro.class, id);
 			
 			em.getTransaction().begin();
 			em.remove(obj);
@@ -58,7 +58,7 @@ public class EstacionamentoDAOImpl implements EstacionamentoDAO {
 		}
 		catch(Exception e) {
 			em.getTransaction().rollback();
-			System.out.println("Erro ao deletar Estacionamento!");
+			System.out.println("Erro ao deletar carro!");
 			e.getMessage();
 		}
 		finally {
@@ -67,36 +67,39 @@ public class EstacionamentoDAOImpl implements EstacionamentoDAO {
 	}
 
 	@Override
-	public Estacionamento findById(Integer id) {
+	public Carro findById(Integer id) {
 		EntityManager em = ConnectionFactory.getEntityManager();
-		Estacionamento estacionamento = null;
+		Carro carro = null;
 		
 		try {
-			estacionamento = em.find(Estacionamento.class, id);
+			carro = em.find(Carro.class, id);
 		}
 		catch(Exception e) {
-			System.out.println("Erro ao procurar estacionamento!");
+			System.out.println("Erro ao procurar Carro!");
 			e.getMessage();
 		}
 		finally {
 			em.close();
 		}
-		return estacionamento;
+		return carro;
 	}
 
 	@Override
-	public List<Estacionamento> findAll() {
+	public List<Carro> findAll() {
 		EntityManager em = ConnectionFactory.getEntityManager();
-		List<Estacionamento> listaEstacionamento = null;
+		List<Carro> listaCarro = null;
 		
 		try {
-			listaEstacionamento = em.createQuery("FROM Estacionamento e ORDER BY id", Estacionamento.class).getResultList();
+			listaCarro = em.createQuery("FROM Carro c ORDER BY id", Carro.class).getResultList();
 		}
 		catch(Exception e) {
-			System.out.println("Erro ao retornar todos os estacionamentos!");
+			System.out.println("Erro ao retornar todos os carros!");
 			e.getMessage();
 		}
-		return listaEstacionamento;
+		finally {
+			em.close();
+		}
+		return listaCarro;
 	}
 
 }

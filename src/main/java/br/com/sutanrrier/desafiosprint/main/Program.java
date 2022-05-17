@@ -5,8 +5,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 import br.com.sutanrrier.desafiosprint.connection.ConnectionFactory;
-import br.com.sutanrrier.desafiosprint.model.dao.impl.CarroDAOImpl;
-import br.com.sutanrrier.desafiosprint.model.dao.impl.EstacionamentoDAOImpl;
+import br.com.sutanrrier.desafiosprint.model.dao.impl.EstacionamentoDaoJPA;
+import br.com.sutanrrier.desafiosprint.model.dao.impl.CarroDaoJPA;
 import br.com.sutanrrier.desafiosprint.model.entities.Carro;
 import br.com.sutanrrier.desafiosprint.model.entities.Estacionamento;
 
@@ -15,13 +15,13 @@ public class Program {
 	public static void main(String[] args) {
 		
 		//Amostras
-		Estacionamento estac1 = new Estacionamento(null, "Estacionamento Flow", Date.valueOf(LocalDate.now()));
-		Carro car1 = new Carro(null, "Prata", "HVI-9195", 300.00, Date.valueOf(LocalDate.now()), estac1);
+		Estacionamento estac1 = new Estacionamento(null, "Estacionamento Teste", Date.valueOf(LocalDate.now()));
+		Carro car1 = new Carro(null, "Cinza", "HVI-9195", 300.00, Date.valueOf(LocalDate.now()), estac1);
 		Carro car2 = new Carro(null, "Vermelho", "HUF-8051", 360.00, Date.valueOf(LocalDate.now()), estac1);
 
 		//Instanciando nossos objetos DAO
-		CarroDAOImpl carroDao = new CarroDAOImpl();
-		EstacionamentoDAOImpl estacionamentoDao = new EstacionamentoDAOImpl();
+		CarroDaoJPA carroDao = new CarroDaoJPA();
+		EstacionamentoDaoJPA estacionamentoDao = new EstacionamentoDaoJPA();
 		
 		//Inserindo entidades (Carro e Estacionamento
 //		estacionamentoDao.insert(estac1);
@@ -30,11 +30,11 @@ public class Program {
 		
 		//Atualizando dados
 //		car1 = carroDao.findById(1);
-//		car1.setPlaca("TESTE");
+//		car1.setPlaca("SEM PLACA");
 //		carroDao.update(car1);
 		
 		//Deletando elementos
-//		carroDao.remove(2);
+//		carroDao.remove(5);
 		
 		//Listando unidades por id
 		Carro carroBuscado = carroDao.findById(3);

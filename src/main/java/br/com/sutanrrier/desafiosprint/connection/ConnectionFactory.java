@@ -8,6 +8,10 @@ public class ConnectionFactory {
 	
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence_jpa");
 	
+	private ConnectionFactory() {
+		
+	}
+	
 	public static EntityManager getEntityManager() {
 		return emf.createEntityManager();
 	}
